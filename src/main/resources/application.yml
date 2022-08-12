@@ -1,0 +1,6 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username:
+    password: v3ryS3cur3P@ssw0rd
