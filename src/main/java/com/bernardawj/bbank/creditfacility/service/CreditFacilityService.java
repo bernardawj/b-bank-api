@@ -1,5 +1,6 @@
 package com.bernardawj.bbank.creditfacility.service;
 
+import com.bernardawj.bbank.applicant.domain.Applicant;
 import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
@@ -13,8 +14,6 @@ public interface CreditFacilityService {
 
     List<CreditFacilityDTO> getAllCreditFacilities();
 
-    CreditFacilityDTO openCreditFacilityForApplicant(OpenCreditFacilityDTO openCreditFacilityDTO);
-
-    CreditFacilityDTO closeCreditFacilityForApplicant(CloseCreditFacilityDTO closeCreditFacilityDTO);
+    CreditFacilityDTO createCreditFacility(Applicant applicant, CreditFacilityDTO creditFacilityDTO);
 
 }

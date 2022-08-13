@@ -1,4 +1,4 @@
-package com.bernardawj.bbank.base.service;
+package com.bernardawj.bbank.applicant.service;
 
 import com.bernardawj.bbank.applicant.domain.Applicant;
 import com.bernardawj.bbank.applicant.dto.ApplicantDTO;
@@ -19,8 +19,6 @@ public class ApplicantServiceImpl implements ApplicantService {
     // Repositories
     private final ApplicantRepository applicantRepository;
 
-    // Services
-
     // Mappers
     private final ApplicantMapper applicantMapper;
 
@@ -34,12 +32,15 @@ public class ApplicantServiceImpl implements ApplicantService {
     }
 
     @Override
-    public ApplicantDTO getApplicant(Long applicantId) throws ApplicantServiceException {
+    public Applicant getApplicantForInternalProcessing(Long applicantId) throws ApplicantServiceException {
         // Check if applicant exists
-        Applicant applicant = this.applicantRepository.findById(applicantId)
+        return this.applicantRepository.findById(applicantId)
                                   .orElseThrow(() -> new ApplicantServiceException(Constant.APPLICANT_NOT_FOUND));
+    }
 
-        return this.applicantMapper.toDTO(applicant);
+    @Override
+    public ApplicantDTO getApplicant(Long applicantId) throws ApplicantServiceException {
+        return this.applicantMapper.toDTO(this.getApplicantForInternalProcessing(applicantId));
     }
 
     @Override

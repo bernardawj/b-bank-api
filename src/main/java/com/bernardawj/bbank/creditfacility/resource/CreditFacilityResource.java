@@ -1,6 +1,5 @@
 package com.bernardawj.bbank.creditfacility.resource;
 
-import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
 import com.bernardawj.bbank.creditfacility.service.CreditFacilityService;
@@ -9,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin
@@ -35,12 +33,6 @@ public class CreditFacilityResource {
     public ResponseEntity<List<CreditFacilityDTO>> getAllCreditFacilities() {
         List<CreditFacilityDTO> creditFacilityListDTO = this.creditFacilityService.getAllCreditFacilities();
         return new ResponseEntity<>(creditFacilityListDTO, HttpStatus.OK);
-    }
-
-    @PostMapping(path = "/open")
-    public ResponseEntity<CreditFacilityDTO> openCreditFacilityForApplicant(@RequestBody @Valid OpenCreditFacilityDTO openCreditFacilityDTO) {
-        CreditFacilityDTO createdCreditFacilityDTO = this.creditFacilityService.openCreditFacilityForApplicant(openCreditFacilityDTO);
-        return new ResponseEntity<>(createdCreditFacilityDTO, HttpStatus.CREATED);
     }
 
 }

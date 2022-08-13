@@ -1,5 +1,6 @@
 package com.bernardawj.bbank.creditfacility.service;
 
+import com.bernardawj.bbank.applicant.domain.Applicant;
 import com.bernardawj.bbank.base.util.Constant;
 import com.bernardawj.bbank.creditfacility.domain.CreditFacility;
 import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
@@ -20,8 +21,6 @@ public class CreditFacilityServiceImpl implements CreditFacilityService {
 
     // Repositories
     private final CreditFacilityRepository creditFacilityRepository;
-
-    // Services
 
     // Mappers
     private final CreditFacilityMapper creditFacilityMapper;
@@ -50,13 +49,13 @@ public class CreditFacilityServiceImpl implements CreditFacilityService {
     }
 
     @Override
-    public CreditFacilityDTO openCreditFacilityForApplicant(OpenCreditFacilityDTO openCreditFacilityDTO) {
-        return null;
-    }
+    public CreditFacilityDTO createCreditFacility(Applicant applicant, CreditFacilityDTO creditFacilityDTO) {
+        // Map and save credit facility
+        CreditFacility creditFacility = this.creditFacilityMapper.toEntity(creditFacilityDTO);
+        creditFacility.setApplicant(applicant);
+        creditFacility = this.creditFacilityRepository.save(creditFacility);
 
-    @Override
-    public CreditFacilityDTO closeCreditFacilityForApplicant(CloseCreditFacilityDTO closeCreditFacilityDTO) {
-        return null;
+        return this.creditFacilityMapper.toDTO(creditFacility);
     }
 
 }

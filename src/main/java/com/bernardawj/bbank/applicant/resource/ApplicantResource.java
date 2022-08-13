@@ -2,7 +2,7 @@ package com.bernardawj.bbank.applicant.resource;
 
 import com.bernardawj.bbank.applicant.dto.ApplicantDTO;
 import com.bernardawj.bbank.applicant.exception.ApplicantServiceException;
-import com.bernardawj.bbank.base.service.ApplicantService;
+import com.bernardawj.bbank.applicant.service.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
