@@ -1,6 +1,6 @@
 package com.bernardawj.bbank.applicant.domain;
 
-import com.bernardawj.bbank.creditfacility.domain.CreditFacility;
+import com.bernardawj.bbank.credit.facility.domain.CreditFacility;
 
 import javax.persistence.*;
 import java.util.List;

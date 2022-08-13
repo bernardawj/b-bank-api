@@ -1,10 +1,8 @@
-package com.bernardawj.bbank.creditfacility.service;
+package com.bernardawj.bbank.credit.facility.service;
 
 import com.bernardawj.bbank.applicant.domain.Applicant;
-import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
+import com.bernardawj.bbank.credit.facility.exception.CreditFacilityServiceException;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
 
 import java.util.List;
 

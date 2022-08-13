@@ -1,15 +1,13 @@
-package com.bernardawj.bbank.creditfacility.service;
+package com.bernardawj.bbank.credit.facility.service;
 
 import com.bernardawj.bbank.applicant.domain.Applicant;
 import com.bernardawj.bbank.base.util.Constant;
-import com.bernardawj.bbank.creditfacility.domain.CreditFacility;
-import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
-import com.bernardawj.bbank.creditfacility.mapper.CreditFacilityMapper;
-import com.bernardawj.bbank.creditfacility.repository.CreditFacilityRepository;
-import com.bernardawj.bbank.creditfacility.util.CreditCalculator;
+import com.bernardawj.bbank.credit.facility.repository.CreditFacilityRepository;
+import com.bernardawj.bbank.credit.facility.exception.CreditFacilityServiceException;
+import com.bernardawj.bbank.credit.facility.domain.CreditFacility;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.mapper.CreditFacilityMapper;
+import com.bernardawj.bbank.base.util.CreditCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +52,8 @@ public class CreditFacilityServiceImpl implements CreditFacilityService {
         // Calculate credit limit and save it
         CreditFacility creditFacility = this.creditFacilityMapper.toEntity(creditFacilityDTO);
         creditFacility.setApplicant(applicant);
-        creditFacility.setTotalLimit(CreditCalculator.calculateCreditLimit(applicant.getAnnualSalary()));
+        creditFacility.setTotalLimit(CreditCalculator.calculateCreditLimit(applicant.getAnnualSalary(),
+            creditFacility.getLoanType()));
 
         creditFacility = this.creditFacilityRepository.save(creditFacility);
 

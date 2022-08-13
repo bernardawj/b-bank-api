@@ -1,8 +1,9 @@
-package com.bernardawj.bbank.creditfacility.resource;
+package com.bernardawj.bbank.credit.facility.resource;
 
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
-import com.bernardawj.bbank.creditfacility.service.CreditFacilityService;
+import com.bernardawj.bbank.credit.facility.exception.CreditFacilityServiceException;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.service.CreditFacilityService;
+import com.bernardawj.bbank.creditfacility.facility.CreditFacilityServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

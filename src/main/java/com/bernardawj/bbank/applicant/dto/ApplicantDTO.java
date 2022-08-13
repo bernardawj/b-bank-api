@@ -1,6 +1,7 @@
 package com.bernardawj.bbank.applicant.dto;
 
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.creditfacility.facility.CreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;

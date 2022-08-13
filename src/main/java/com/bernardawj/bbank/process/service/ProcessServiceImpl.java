@@ -1,13 +1,12 @@
 package com.bernardawj.bbank.process.service;
 
 import com.bernardawj.bbank.applicant.domain.Applicant;
-import com.bernardawj.bbank.applicant.dto.ApplicantDTO;
 import com.bernardawj.bbank.applicant.exception.ApplicantServiceException;
 import com.bernardawj.bbank.applicant.service.ApplicantService;
-import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.service.CreditFacilityService;
+import com.bernardawj.bbank.credit.facility.dto.CloseCreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.OpenCreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.service.CreditFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

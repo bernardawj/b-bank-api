@@ -1,4 +1,4 @@
-package com.bernardawj.bbank.creditfacility.dto;
+package com.bernardawj.bbank.credit.facility.dto;
 
 public class CloseCreditFacilityDTO {
 

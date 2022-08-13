@@ -1,9 +1,9 @@
 package com.bernardawj.bbank.process.resource;
 
 import com.bernardawj.bbank.applicant.exception.ApplicantServiceException;
-import com.bernardawj.bbank.creditfacility.dto.CloseCreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
-import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.CloseCreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.credit.facility.dto.OpenCreditFacilityDTO;
 import com.bernardawj.bbank.process.service.ProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @CrossOrigin
 @RestController

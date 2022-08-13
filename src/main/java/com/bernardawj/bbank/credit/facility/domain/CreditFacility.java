@@ -1,20 +1,41 @@
-package com.bernardawj.bbank.creditfacility.dto;
+package com.bernardawj.bbank.credit.facility.domain;
 
-import com.bernardawj.bbank.applicant.dto.ApplicantDTO;
-import com.bernardawj.bbank.creditfacility.enumeration.LoanType;
+import com.bernardawj.bbank.applicant.domain.Applicant;
+import com.bernardawj.bbank.credit.facility.enumeration.LoanType;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class CreditFacilityDTO {
+@Entity
+@Table(name = "credit_facilities")
+public class CreditFacility {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "start_date")
     private LocalDate startDate;
+
+    @Column(name = "end_date")
     private LocalDate endDate;
+
+    @Column(name = "currency")
     private String currency;
+
+    @Column(name = "total_limit")
     private Double totalLimit;
+
+    @Column(name = "loan_type")
+    @Enumerated(EnumType.STRING)
     private LoanType loanType;
 
-    public CreditFacilityDTO() {
+    @ManyToOne()
+    @JoinColumn(name = "applicant_id")
+    private Applicant applicant;
+
+    public CreditFacility() {
     }
 
     public Long getId() {
@@ -63,6 +84,14 @@ public class CreditFacilityDTO {
 
     public void setLoanType(LoanType loanType) {
         this.loanType = loanType;
+    }
+
+    public Applicant getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 
 }
