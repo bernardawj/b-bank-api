@@ -9,6 +9,7 @@ import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
 import com.bernardawj.bbank.creditfacility.mapper.CreditFacilityMapper;
 import com.bernardawj.bbank.creditfacility.repository.CreditFacilityRepository;
+import com.bernardawj.bbank.creditfacility.util.CreditCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,9 +51,11 @@ public class CreditFacilityServiceImpl implements CreditFacilityService {
 
     @Override
     public CreditFacilityDTO createCreditFacility(Applicant applicant, CreditFacilityDTO creditFacilityDTO) {
-        // Map and save credit facility
+        // Calculate credit limit and save it
         CreditFacility creditFacility = this.creditFacilityMapper.toEntity(creditFacilityDTO);
         creditFacility.setApplicant(applicant);
+        creditFacility.setTotalLimit(CreditCalculator.calculateCreditLimit(applicant.getAnnualSalary()));
+
         creditFacility = this.creditFacilityRepository.save(creditFacility);
 
         return this.creditFacilityMapper.toDTO(creditFacility);
