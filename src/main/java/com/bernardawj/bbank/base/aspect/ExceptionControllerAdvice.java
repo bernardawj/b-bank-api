@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class ExceptionControllerAdvice {
 
     private static final Log LOGGER = LogFactory.getLog(ExceptionControllerAdvice.class);
-    private Environment environment;
+    private final Environment environment;
 
     @Autowired
     public ExceptionControllerAdvice(Environment environment) {
@@ -34,6 +34,7 @@ public class ExceptionControllerAdvice {
 
         ErrorInfo errorInfo = new ErrorInfo();
         errorInfo.setCode(status.value());
+        errorInfo.setMessage(environment.getProperty(exception.getMessage()));
 
         return new ResponseEntity<>(errorInfo, status);
     }
