@@ -1,6 +1,9 @@
 package com.bernardawj.bbank.applicant.dto;
 
+import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
 import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
 
 @Validated
 public class ApplicantDTO {
@@ -11,6 +14,7 @@ public class ApplicantDTO {
     private String contactNo;
     private String email;
     private Double annualSalary;
+    private List<CreditFacilityDTO> creditFacilities;
 
     public ApplicantDTO() {
     }
@@ -61,6 +65,14 @@ public class ApplicantDTO {
 
     public void setAnnualSalary(Double annualSalary) {
         this.annualSalary = annualSalary;
+    }
+
+    public List<CreditFacilityDTO> getCreditFacilities() {
+        return creditFacilities;
+    }
+
+    public void setCreditFacilities(List<CreditFacilityDTO> creditFacilities) {
+        this.creditFacilities = creditFacilities;
     }
 
 }

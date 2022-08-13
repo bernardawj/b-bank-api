@@ -1,4 +1,4 @@
-package com.bernardawj.bbank.applicant.service;
+package com.bernardawj.bbank.base.service;
 
 import com.bernardawj.bbank.applicant.domain.Applicant;
 import com.bernardawj.bbank.applicant.dto.ApplicantDTO;

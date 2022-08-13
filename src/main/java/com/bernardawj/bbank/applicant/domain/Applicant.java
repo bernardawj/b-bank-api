@@ -1,6 +1,9 @@
 package com.bernardawj.bbank.applicant.domain;
 
+import com.bernardawj.bbank.creditfacility.domain.CreditFacility;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "applicants")
@@ -26,9 +29,9 @@ public class Applicant {
     @Column(name = "annual_salary")
     private Double annualSalary;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "applicant_id")
-//    private List<CreditFacility> creditFacilities;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "applicant_id")
+    private List<CreditFacility> creditFacilities;
 
     public Applicant() {
     }
@@ -77,12 +80,12 @@ public class Applicant {
         this.annualSalary = annualSalary;
     }
 
-//    public List<CreditFacility> getCreditFacilities() {
-//        return creditFacilities;
-//    }
-//
-//    public void setCreditFacilities(List<CreditFacility> creditFacilities) {
-//        this.creditFacilities = creditFacilities;
-//    }
+    public List<CreditFacility> getCreditFacilities() {
+        return creditFacilities;
+    }
+
+    public void setCreditFacilities(List<CreditFacility> creditFacilities) {
+        this.creditFacilities = creditFacilities;
+    }
 
 }
