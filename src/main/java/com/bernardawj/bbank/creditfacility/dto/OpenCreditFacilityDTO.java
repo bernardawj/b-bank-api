@@ -1,21 +1,19 @@
 package com.bernardawj.bbank.creditfacility.dto;
 
-import com.bernardawj.bbank.applicant.dto.ApplicantDTO;
+public class OpenCreditFacilityDTO {
 
-public class CreateCreditFacilityDTO {
-
-    private ApplicantDTO applicantDTO;
+    private Long applicantId;
     private CreditFacilityDTO creditFacilityDTO;
 
-    public CreateCreditFacilityDTO() {
+    public OpenCreditFacilityDTO() {
     }
 
-    public ApplicantDTO getApplicantDTO() {
-        return applicantDTO;
+    public Long getApplicantId() {
+        return applicantId;
     }
 
-    public void setApplicantDTO(ApplicantDTO applicantDTO) {
-        this.applicantDTO = applicantDTO;
+    public void setApplicantId(Long applicantId) {
+        this.applicantId = applicantId;
     }
 
     public CreditFacilityDTO getCreditFacilityDTO() {

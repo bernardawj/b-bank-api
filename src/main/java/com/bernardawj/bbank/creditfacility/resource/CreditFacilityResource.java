@@ -1,7 +1,8 @@
 package com.bernardawj.bbank.creditfacility.resource;
 
-import com.bernardawj.bbank.creditfacility.dto.CreateCreditFacilityDTO;
+import com.bernardawj.bbank.creditfacility.dto.OpenCreditFacilityDTO;
 import com.bernardawj.bbank.creditfacility.dto.CreditFacilityDTO;
+import com.bernardawj.bbank.creditfacility.exception.CreditFacilityServiceException;
 import com.bernardawj.bbank.creditfacility.service.CreditFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class CreditFacilityResource {
     }
 
     @GetMapping(path = "/{creditFacilityId}")
-    public ResponseEntity<CreditFacilityDTO> getOneCreditFacility(@PathVariable("creditFacilityId") Long creditFacilityId) {
+    public ResponseEntity<CreditFacilityDTO> getOneCreditFacility(@PathVariable("creditFacilityId") Long creditFacilityId) throws CreditFacilityServiceException {
         CreditFacilityDTO creditFacilityDTO = this.creditFacilityService.getOneCreditFacility(creditFacilityId);
         return new ResponseEntity<>(creditFacilityDTO, HttpStatus.OK);
     }
@@ -37,8 +38,8 @@ public class CreditFacilityResource {
     }
 
     @PostMapping(path = "/open")
-    public ResponseEntity<CreditFacilityDTO> openCreditFacilityForApplicant(@RequestBody @Valid CreateCreditFacilityDTO createCreditFacilityDTO) {
-        CreditFacilityDTO createdCreditFacilityDTO = this.creditFacilityService.openCreditFacilityForApplicant(createCreditFacilityDTO);
+    public ResponseEntity<CreditFacilityDTO> openCreditFacilityForApplicant(@RequestBody @Valid OpenCreditFacilityDTO openCreditFacilityDTO) {
+        CreditFacilityDTO createdCreditFacilityDTO = this.creditFacilityService.openCreditFacilityForApplicant(openCreditFacilityDTO);
         return new ResponseEntity<>(createdCreditFacilityDTO, HttpStatus.CREATED);
     }
 
